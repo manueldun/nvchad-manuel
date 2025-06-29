@@ -14,7 +14,8 @@ vim.opt.rtp:prepend(lazypath)
 local lazy_config = require "configs.lazy"
 
 -- load plugins
-require("lazy").setup({
+local lazy = require "lazy"
+lazy.setup({
   {
     "NvChad/NvChad",
     lazy = false,
@@ -46,20 +47,32 @@ direnv.setup {
 }
 
 local dap = require "dap"
-dap.adapters.cpp = {
-  type = "executable",
-  command = vim.fn.stdpath "data" .. "/mason/bin/codelldb",
-  name = "cpp",
-}
-dap.configurations.cpp = {
-  {
-    name = "Launch",
-    type = "cpp",
-    request = "launch",
-    program = "./build/" .. os.getenv "PROGRAM_NAME",
-    cwd = "${workspaceFolder}/build",
-    stopOnEntry = false,
-    args = {},
-  },
-}
 require("dapui").setup()
+dap.listeners.after["event_exited"]["end_debug_session"] = function()
+  require("dapui").close()
+  vim.cmd "NvimTreeOpen"
+end
+dap.listeners.before["event_continued"]["start_debug_session"] = function()
+  require("dapui").open()
+  vim.cmd "NvimTreeClose"
+end
+
+if os.getenv "PROGRAM_NAME" ~= nil then
+  dap.adapters.cpp = {
+    type = "executable",
+    command = vim.fn.stdpath "data" .. "/mason/bin/codelldb",
+    name = "cpp",
+  }
+
+  dap.configurations.cpp = {
+    {
+      name = "Launch",
+      type = "cpp",
+      request = "launch",
+      program = "./build/" .. os.getenv "PROGRAM_NAME",
+      cwd = "${workspaceFolder}/build",
+      stopOnEntry = false,
+      args = {},
+    },
+  }
+end

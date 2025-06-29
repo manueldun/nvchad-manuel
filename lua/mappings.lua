@@ -6,10 +6,13 @@ local map = vim.keymap.set
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
-
 -- debugging
 vim.keymap.set("n", "<F5>", function()
   require("dap").continue()
+end, { desc = "run" })
+
+vim.keymap.set("n", "<leader>dx", function()
+  require("dap").close()
 end, { desc = "run" })
 
 vim.keymap.set("n", "<F10>", function()
@@ -63,6 +66,6 @@ vim.keymap.set("n", "<Leader>ds", function()
 end, { desc = "centered float scopes" })
 
 vim.keymap.set("n", "<Leader>du", function()
-require("dapui").toggle()
+  require("dapui").toggle()
 end, { desc = "toggle dap ui" })
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
