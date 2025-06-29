@@ -12,7 +12,13 @@ return {
       require "configs.lspconfig"
     end,
   },
-
+  { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
+  {
+    "NotAShelf/direnv.nvim",
+    config = function()
+      require("direnv").setup {}
+    end,
+  },
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 

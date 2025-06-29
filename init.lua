@@ -35,3 +35,31 @@ require "autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+local direnv = require "direnv"
+
+direnv.setup {
+  autoload_direnv = true,
+  statusline = {
+    enabled = true,
+  },
+}
+
+local dap = require "dap"
+dap.adapters.cpp = {
+  type = "executable",
+  command = vim.fn.stdpath "data" .. "/mason/bin/codelldb",
+  name = "cpp",
+}
+dap.configurations.cpp = {
+  {
+    name = "Launch",
+    type = "cpp",
+    request = "launch",
+    program = "./build/" .. os.getenv "PROGRAM_NAME",
+    cwd = "${workspaceFolder}/build",
+    stopOnEntry = false,
+    args = {},
+  },
+}
+require("dapui").setup()
