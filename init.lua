@@ -48,7 +48,7 @@ direnv.setup {
 
 local dap = require "dap"
 require("dapui").setup()
-dap.listeners.after["event_exited"]["end_debug_session"] = function()
+dap.listeners.before["event_exited"]["end_debug_session"] = function()
   require("dapui").close()
   vim.cmd "NvimTreeOpen"
 end

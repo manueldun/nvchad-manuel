@@ -39,33 +39,33 @@ vim.keymap.set("n", "<Leader>lp", function()
   require("dap").set_breakpoint(nil, nil, vim.fn.input "Log point message: ")
 end, { desc = "set breakpoint log" })
 
-vim.keymap.set("n", "<Leader>dr", function()
+vim.keymap.set("n", "<Leader>ddr", function()
   require("dap").repl.open()
 end, { desc = "REPL" })
 
-vim.keymap.set("n", "<Leader>dl", function()
+vim.keymap.set("n", "<Leader>ddl", function()
   require("dap").run_last()
 end, { desc = "run last" })
 
-vim.keymap.set({ "n", "v" }, "<Leader>dh", function()
+vim.keymap.set({ "n", "v" }, "<Leader>ddh", function()
   require("dap.ui.widgets").hover()
 end, { desc = "hover" })
 
-vim.keymap.set({ "n", "v" }, "<Leader>dp", function()
+vim.keymap.set({ "n", "v" }, "<Leader>ddp", function()
   require("dap.ui.widgets").preview()
 end, { desc = "preview" })
 
-vim.keymap.set("n", "<Leader>df", function()
+vim.keymap.set("n", "<Leader>ddf", function()
   local widgets = require "dap.ui.widgets"
   widgets.centered_float(widgets.frames)
 end, { desc = "centered float frames" })
 
-vim.keymap.set("n", "<Leader>ds", function()
+vim.keymap.set("n", "<Leader>dds", function()
   local widgets = require "dap.ui.widgets"
   widgets.centered_float(widgets.scopes)
 end, { desc = "centered float scopes" })
 
-vim.keymap.set("n", "<Leader>du", function()
+vim.keymap.set("n", "<Leader>ddu", function()
   require("dapui").toggle()
 end, { desc = "toggle dap ui" })
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
