@@ -5,7 +5,7 @@
 ---@type ChadrcConfig
 local M = {
   mason = {
-    pkgs = { "css-lsp", "html-lsp", "stylua", "codelldb", "clangd", "fixjson" },
+    pkgs = { "css-lsp", "html-lsp", "stylua", "codelldb", "clangd", "fixjson", "prettier" },
   },
 }
 
