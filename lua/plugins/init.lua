@@ -59,6 +59,19 @@ return {
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "c",
+        "cpp",
+        "javascript",
+        "html",
+        "css",
+        "glsl"
+      },
+    },
+  },
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
   -- 	opts = {
