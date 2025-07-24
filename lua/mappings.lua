@@ -68,4 +68,7 @@ end, { desc = "centered float scopes" })
 vim.keymap.set("n", "<Leader>ddu", function()
   require("dapui").toggle()
 end, { desc = "toggle dap ui" })
+
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>/', builtin.lsp_document_symbols, { desc = 'Search symbols' })
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
