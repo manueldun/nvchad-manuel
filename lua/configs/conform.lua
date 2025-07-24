@@ -3,6 +3,7 @@ local options = {
     lua = { "stylua" },
     json = { "fixjson" },
     javascriptreact = { "prettier" },
+    glsl = { "clang-format" },
     -- css = { "prettier" },
     -- html = { "prettier" },
   },
