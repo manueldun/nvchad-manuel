@@ -15,7 +15,7 @@ return {
   { "Jorenar/nvim-dap-disasm", dependencies = { "mfussenegger/nvim-dap", "carriga/nvim-dap-ui" } },
   {
     "rcarriga/nvim-dap-ui",
-    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio", "theHamsta/nvim-dap-virtual-text" },
     config = function()
       local dapDisam = require "dap-disasm"
       dapDisam.setup {
@@ -48,6 +48,7 @@ return {
           "instruction",
         },
       }
+      require("nvim-dap-virtual-text").setup()
     end,
   },
   {
@@ -68,7 +69,7 @@ return {
         "javascript",
         "html",
         "css",
-        "glsl"
+        "glsl",
       },
     },
   },
