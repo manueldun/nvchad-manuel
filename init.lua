@@ -76,3 +76,4 @@ if os.getenv "PROGRAM_NAME" ~= nil then
     },
   }
 end
+vim.opt.relativenumber = true
