@@ -12,7 +12,10 @@ return {
       require "configs.lspconfig"
     end,
   },
-  { "Jorenar/nvim-dap-disasm", dependencies = { "mfussenegger/nvim-dap", "carriga/nvim-dap-ui" } },
+  {
+    "Jorenar/nvim-dap-disasm",
+    dependencies = { "mfussenegger/nvim-dap", "carriga/nvim-dap-ui", "ldelossa/nvim-dap-projects" },
+  },
   {
     "rcarriga/nvim-dap-ui",
     dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio", "theHamsta/nvim-dap-virtual-text" },

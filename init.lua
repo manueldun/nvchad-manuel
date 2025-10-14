@@ -57,23 +57,5 @@ dap.listeners.before["event_continued"]["start_debug_session"] = function()
   vim.cmd "NvimTreeClose"
 end
 
-if os.getenv "PROGRAM_NAME" ~= nil then
-  dap.adapters.cpp = {
-    type = "executable",
-    command = vim.fn.stdpath "data" .. "/mason/bin/codelldb",
-    name = "cpp",
-  }
-
-  dap.configurations.cpp = {
-    {
-      name = "Launch",
-      type = "cpp",
-      request = "launch",
-      program = "./build/" .. os.getenv "PROGRAM_NAME",
-      cwd = "${workspaceFolder}/build",
-      stopOnEntry = false,
-      args = {},
-    },
-  }
-end
 vim.opt.relativenumber = true
+require('nvim-dap-projects').search_project_config()
