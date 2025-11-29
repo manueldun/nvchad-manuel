@@ -58,4 +58,4 @@ dap.listeners.before["event_continued"]["start_debug_session"] = function()
 end
 
 vim.opt.relativenumber = true
-require('nvim-dap-projects').search_project_config()
+require("nvim-dap-projects").search_project_config()
