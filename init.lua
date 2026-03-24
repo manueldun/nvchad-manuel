@@ -57,6 +57,7 @@ dap.listeners.before["event_continued"]["start_debug_session"] = function()
   vim.cmd "NvimTreeClose"
 end
 
+vim.g.neovide_scale_factor = 0.8
 vim.opt.relativenumber = true
 require("nvim-dap-projects").search_project_config()
 require("lsp-overloads").setup()
