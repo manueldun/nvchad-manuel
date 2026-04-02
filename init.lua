@@ -61,15 +61,16 @@ vim.g.neovide_scale_factor = 0.8
 vim.opt.relativenumber = true
 require("nvim-dap-projects").search_project_config()
 require("lsp-overloads").setup()
-require("neorg").setup({
-    load = {
-        ["core.defaults"] = {},
-        ["core.dirman"] = {
-            config = {
-                workspaces = {
-                    notes = "~/LinuxData/notes/",
-                },
-            },
+require("neorg").setup {
+  load = {
+    ["core.defaults"] = {},
+    ["core.dirman"] = {
+      config = {
+        workspaces = {
+          notes = "~/LinuxData/notes/",
         },
+      },
     },
-})
+  },
+}
+
