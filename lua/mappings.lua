@@ -8,6 +8,30 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 -- debugging
 vim.keymap.set("n", "<F5>", function()
+  local dap = require "dap"
+
+  dap.adapters.cpp = {
+    type = "executable",
+    command = vim.fn.stdpath "data" .. "/mason/bin/codelldb",
+    name = "cpp",
+  }
+  local executables = dofile(vim.fn.getcwd() .. "/debugExecFiles.lua")
+
+  vim.ui.select(executables, {
+    prompt = "Select executable: ",
+  }, function(choice)
+    dap.configurations.cpp = {
+      {
+        name = "Launch",
+        type = "cpp",
+        request = "launch",
+        program = choice,
+        cwd = "${workspaceFolder}/build/",
+        stopOnEntry = false,
+        args = {},
+      },
+    }
+  end)
   require("dap").continue()
 end, { desc = "run" })
 
