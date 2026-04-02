@@ -14,7 +14,7 @@ return {
   },
   {
     "Jorenar/nvim-dap-disasm",
-    dependencies = { "mfussenegger/nvim-dap", "carriga/nvim-dap-ui", "ldelossa/nvim-dap-projects" },
+    dependencies = { "mfussenegger/nvim-dap", "carriga/nvim-dap-ui", },
   },
   {
     "rcarriga/nvim-dap-ui",
