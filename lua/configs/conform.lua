@@ -5,6 +5,7 @@ local options = {
     javascriptreact = { "prettier" },
     javascript = { "prettier" },
     glsl = { "clang-format" },
+    python = { "black" },
     -- css = { "prettier" },
     -- html = { "prettier" },
   },
