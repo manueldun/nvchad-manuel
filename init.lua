@@ -37,14 +37,6 @@ vim.schedule(function()
   require "mappings"
 end)
 
-local direnv = require "direnv"
-
-direnv.setup {
-  autoload_direnv = true,
-  statusline = {
-    enabled = true,
-  },
-}
 
 local dap = require "dap"
 require("dapui").setup()
