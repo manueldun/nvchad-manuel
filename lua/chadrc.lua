@@ -5,6 +5,8 @@
 ---@type ChadrcConfig
 local M = {
   mason = {
+    --need to install "python3" and "python3 venv"
+    --for some packages
     pkgs = {
       "css-lsp",
       "html-lsp",
