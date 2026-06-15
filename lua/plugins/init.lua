@@ -13,12 +13,16 @@ return {
     end,
   },
   {
-    "Jorenar/nvim-dap-disasm",
-    dependencies = { "mfussenegger/nvim-dap", "carriga/nvim-dap-ui", },
-  },
-  {
-    "rcarriga/nvim-dap-ui",
-    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio", "theHamsta/nvim-dap-virtual-text" },
+    "mfussenegger/nvim-dap",
+    dependencies = {
+      "rcarriga/nvim-dap-ui",
+      "mfussenegger/nvim-dap",
+      "nvim-neotest/nvim-nio",
+      "theHamsta/nvim-dap-virtual-text",
+      "Jorenar/nvim-dap-disasm",
+      "mfussenegger/nvim-dap",
+      "carriga/nvim-dap-ui",
+    },
     config = function()
       local dapDisam = require "dap-disasm"
       dapDisam.setup {
@@ -54,15 +58,7 @@ return {
       require("nvim-dap-virtual-text").setup()
     end,
   },
-  {
-    "NotAShelf/direnv.nvim",
-    config = function()
-      require("direnv").setup {}
-    end,
-  },
-  -- test new blink
-  -- { import = "nvchad.blink.lazyspec" },
-
+  -- needs to install treesitter-cli
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
@@ -76,19 +72,4 @@ return {
       },
     },
   },
-  {
-    "nvim-neorg/neorg",
-    lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
-    version = "*", -- Pin Neorg to the latest stable release
-    config = true,
-  },
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
 }
