@@ -38,16 +38,6 @@ vim.schedule(function()
 end)
 
 
-local dap = require "dap"
-require("dapui").setup()
-dap.listeners.before["event_exited"]["end_debug_session"] = function()
-  require("dapui").close()
-  vim.cmd "NvimTreeOpen"
-end
-dap.listeners.before["event_continued"]["start_debug_session"] = function()
-  require("dapui").open()
-  vim.cmd "NvimTreeClose"
-end
 
 vim.g.neovide_scale_factor = 0.8
 vim.opt.relativenumber = true
