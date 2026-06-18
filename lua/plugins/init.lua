@@ -23,7 +23,18 @@ return {
       "mfussenegger/nvim-dap",
       "carriga/nvim-dap-ui",
     },
+    ft = { "cpp", "c" },
     config = function()
+      local dap = require "dap"
+      require("dapui").setup()
+      dap.listeners.before["event_exited"]["end_debug_session"] = function()
+        require("dapui").close()
+        vim.cmd "NvimTreeOpen"
+      end
+      dap.listeners.before["event_continued"]["start_debug_session"] = function()
+        require("dapui").open()
+        vim.cmd "NvimTreeClose"
+      end
       local dapDisam = require "dap-disasm"
       dapDisam.setup {
         -- Add disassembly view to elements of nvim-dap-ui
